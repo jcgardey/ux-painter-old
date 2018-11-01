@@ -15,11 +15,14 @@
       "content_scripts/refactorings/lib/js/date-dropdowns.js",
       "content_scripts/refactorings/Refactorings.js",
       "content_scripts/XpathProcessor.js",
+      "content_scripts/XPathInterpreter.js",
+      "content_scripts/PageSelector.js",
       "content_scripts/views/RefactoringsListView.js",
       "content_scripts/Sidebar.js",
       "content_scripts/main.js"
     ],
     "css": [
+      "content_scripts/andes-highlighting.css",
       "content_scripts/views/css/sidebar.css",
       "content_scripts/refactorings/lib/css/tipr.css",
       "content_scripts/refactorings/lib/css/datepickr.min.css",

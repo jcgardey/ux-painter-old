@@ -12,7 +12,17 @@ RefactoringsListView.prototype.render = function () {
     $("#refactorings-sidebar").append(list);
 
     $.each(this.refactorings, function (i, refactoring) {
-        $(list).append("<li><a>" + refactoring + "</a></li>");
+        $(list).append("<li><a class='refactoring-item'>" + refactoring + "</a></li>");
     });
 
+    $(".refactoring-item").on("click", function () {
+        pageManager.enableElementSelection({
+            "scrapperClass": "QuerySelectorScrapper",
+            "targetElementSelector": "input",
+            "onElementSelection": "onElementSelection",
+            "justFullPath": true
+        });
+        pageManager.preventDomElementsBehaviour();
+    });
 };
+
