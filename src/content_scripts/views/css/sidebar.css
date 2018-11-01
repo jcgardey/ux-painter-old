@@ -1,0 +1,20 @@
+#refactorings-sidebar {
+    float: right;
+    position: absolute;
+    width: 300px;
+    z-index: 99999;
+    top: 0px;
+    right: 0px;
+    background-color: white;
+    margin: 1px solid gray;
+}
+
+ul.refactorings-list {
+    list-style-type: none;
+}
+
+ul.refactorings-list li a {
+    cursor: pointer;
+    margin: 15px;
+}
+
