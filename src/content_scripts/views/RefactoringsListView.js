@@ -1,5 +1,5 @@
 function RefactoringsListView () {
-    this.refactorings = [RenameElementRefactoring, AddTooltipRefactoring];
+    this.refactorings = [RenameElementRefactoring, AddTooltipRefactoring, AddDatePickerRefactoring];
 }
 
 RefactoringsListView.prototype.getSelectedRefactoring = function (refactoringName) {

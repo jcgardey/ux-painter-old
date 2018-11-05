@@ -16,6 +16,7 @@
       "content_scripts/refactorings/Refactorings.js",
       "content_scripts/refactorings/RenameElementRefactoring.js",
       "content_scripts/refactorings/AddTooltipRefactoring.js",
+      "content_scripts/refactorings/AddDatePickerRefactoring.js",
       "content_scripts/XpathProcessor.js",
       "content_scripts/XPathInterpreter.js",
       "content_scripts/PageSelector.js",
@@ -25,6 +26,7 @@
       "content_scripts/views/RefactoringOnElementView.js",
       "content_scripts/views/RenameElementView.js",
       "content_scripts/views/AddTooltipView.js",
+      "content_scripts/views/AddDatePickerView.js",
       "content_scripts/Sidebar.js"
     ],
     "css": [

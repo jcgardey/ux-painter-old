@@ -35,20 +35,6 @@ UsabilityRefactoringOnElement.prototype.getElement = function () {
 }
 
 
-
-function AddDatePickerRefactoring(elementXpath) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-}
-
-AddDatePickerRefactoring.prototype = new UsabilityRefactoringOnElement();
-
-AddDatePickerRefactoring.prototype.transform = function () {
-    var anElement = $(new XpathProcessor().getElementByXpath(this.elementXpath));
-    if (typeof(anElement[0]) != "undefined") {
-        datepickr(anElement[0], { dateFormat: "d/m/Y" })
-    }
-};
-
 function AddAutocompleteRefactoring(elementXpath, values) {
     UsabilityRefactoringOnElement.call(this, elementXpath);
     this.values = values;
