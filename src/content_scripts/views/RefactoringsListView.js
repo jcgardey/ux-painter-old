@@ -1,5 +1,5 @@
 function RefactoringsListView () {
-    this.refactorings = [RenameElementRefactoring];
+    this.refactorings = [RenameElementRefactoring, AddTooltipRefactoring];
 }
 
 RefactoringsListView.prototype.getSelectedRefactoring = function (refactoringName) {
@@ -21,14 +21,14 @@ RefactoringsListView.prototype.render = function () {
     });
 
     $(".refactoring-item").on("click", function (e) {
+        var refactoringClass = me.getSelectedRefactoring($(e.target).text());
         pageManager.enableElementSelection({
             "scrapperClass": "QuerySelectorScrapper",
-            "targetElementSelector": "a",
+            "targetElementSelector": refactoringClass.targetElements(),
             "onElementSelection": "onElementSelection",
             "justFullPath": true
         });
         pageManager.preventDomElementsBehaviour();
-        var refactoringClass = me.getSelectedRefactoring($(e.target).text());
         sidebar.show(refactoringClass.getView());
     });
 };

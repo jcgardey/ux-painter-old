@@ -12,10 +12,10 @@ RenameElementView.prototype.render = function () {
     var me = this;
 
     $("#apply").on("click", function () {
-        console.log("fired");
         var newName = $("#element_name").val();
         me.refactoring.setNewName(newName);
         me.refactoring.execute();
+        sidebar.show(RefactoringsListView);
     });
 };
 
@@ -23,7 +23,5 @@ RenameElementView.prototype.getTitle = function () {
     return "Rename Element Refactoring";
 };
 
-RenameElementView.prototype.onElementSelected = function (element) {
-    this.refactoring.setElement(new XpathProcessor().getXPath(element));
-};
+
 
