@@ -1,12 +1,13 @@
 function RefactoringsListView () {
-    this.refactorings = [RenameElementRefactoring, AddTooltipRefactoring, AddDatePickerRefactoring, AddAutocompleteRefactoring];
+    this.refactorings = [RenameElementRefactoring, AddTooltipRefactoring,
+        AddDatePickerRefactoring, AddAutocompleteRefactoring, TurnInputIntoRadiosRefactoring];
 }
 
 RefactoringsListView.prototype.getSelectedRefactoring = function (refactoringName) {
     return $(this.refactorings).filter(function (i, refactoringClass) {
         return refactoringClass.getName() == refactoringName;
     })[0];
-}
+};
 
 RefactoringsListView.prototype.render = function () {
     var me = this;

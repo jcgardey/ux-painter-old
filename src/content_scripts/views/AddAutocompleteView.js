@@ -13,11 +13,10 @@ AddAutocompleteView.prototype.render = function () {
 };
 
 AddAutocompleteView.prototype.getTitle = function () {
-    return "Add Tooltip";
+    return "Add Autocomplete";
 };
 
 AddAutocompleteView.prototype.setRefactoringArguments = function () {
     var values = $("#autocomplete-values").val().split(",");
-    console.log(values);
     this.refactoring.setValues(values);
 };

@@ -35,44 +35,6 @@ UsabilityRefactoringOnElement.prototype.getElement = function () {
 }
 
 
-
-function TurnInputIntoRadiosRefactoring(elementXpath, values) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.values = values;
-}
-
-TurnInputIntoRadiosRefactoring.prototype = new UsabilityRefactoringOnElement();
-
-function getRandomID() {
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-}
-
-TurnInputIntoRadiosRefactoring.prototype.transform = function () {
-    var anElement = $(new XpathProcessor().getElementByXpath(this.elementXpath));
-    if (typeof(anElement[0]) != "undefined") {
-        anElement.attr("type", "hidden");
-        var radioName = getRandomID();
-        var otherTextInput = getRandomID();
-        var otherRadioID = getRandomID()
-
-        anElement.after("<p><input type='radio' name='" + radioName + "' id='" + otherRadioID + "' value='Other'><label style='cursor:pointer' for='" + otherRadioID + "'>Other</label> <input type='text' id='" + otherTextInput + "'/></p>");
-        $("#" + otherTextInput).keyup(function() {
-            anElement.val(this.value)
-        }).click(function() {
-            $("#" + otherRadioID).prop("checked", true)
-        });
-
-        $(this.values).each(function(index, value) {
-            var newID = getRandomID();
-            anElement.after("<p><input type='radio' name='" + radioName + "' id='" + newID + "' value='" + value + "'><label style='cursor:pointer' for='" + newID + "'>" + value + "</label></p>");
-        });
-
-        $("input:radio[name='" + radioName + "']").change(function() {
-            anElement.val(this.value);
-        });
-    }
-};
-
 function AddFormValidationRefactoring(formXpath, requiredInputXpaths) {
     UsabilityRefactoringOnElement.call(this, formXpath);
     this.requiredInputXpaths = requiredInputXpaths;
