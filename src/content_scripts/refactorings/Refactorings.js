@@ -35,20 +35,6 @@ UsabilityRefactoringOnElement.prototype.getElement = function () {
 }
 
 
-function AddAutocompleteRefactoring(elementXpath, values) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.values = values;
-};
-
-AddAutocompleteRefactoring.prototype = new UsabilityRefactoringOnElement();
-
-AddAutocompleteRefactoring.prototype.transform = function () {
-    var anElement = $(new XpathProcessor().getElementByXpath(this.elementXpath));
-    if (typeof(anElement[0]) != "undefined") {
-        new Awesomplete(anElement[0], { list: this.values });
-    }
-};
-
 
 function TurnInputIntoRadiosRefactoring(elementXpath, values) {
     UsabilityRefactoringOnElement.call(this, elementXpath);
