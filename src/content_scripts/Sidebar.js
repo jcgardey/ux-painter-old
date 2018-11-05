@@ -26,7 +26,7 @@ Sidebar.prototype.toggle = function () {
 };
 
 Sidebar.prototype.show = function (view) {
-    this.currentView = new view();
+    this.currentView = view;
     this.render();
 };
 

@@ -29,7 +29,7 @@ RefactoringsListView.prototype.render = function () {
             "justFullPath": true
         });
         pageManager.preventDomElementsBehaviour();
-        sidebar.show(refactoringClass.getView());
+        sidebar.show(new SelectElementView(new refactoringClass()));
     });
 };
 

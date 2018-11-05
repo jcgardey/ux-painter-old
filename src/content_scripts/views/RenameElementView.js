@@ -15,7 +15,7 @@ RenameElementView.prototype.render = function () {
         var newName = $("#element_name").val();
         me.refactoring.setNewName(newName);
         me.refactoring.execute();
-        sidebar.show(RefactoringsListView);
+        sidebar.show(new RefactoringsListView ());
     });
 };
 
