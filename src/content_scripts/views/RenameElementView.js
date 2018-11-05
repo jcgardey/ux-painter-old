@@ -2,10 +2,10 @@ function RenameElementView () {
     this.refactoring = new RenameElementRefactoring();
 }
 
-RenameElementView.prototype = new RefactoringView();
+RenameElementView.prototype = new RefactoringOnElementView();
 
 RenameElementView.prototype.render = function () {
-    RefactoringView.prototype.render.call(this);
+    RefactoringOnElementView.prototype.render.call(this);
     $("#refactoring-form").append("<label>New Name</label>");
     $("#refactoring-form").append("<input type='text' id='element_name'/>");
 

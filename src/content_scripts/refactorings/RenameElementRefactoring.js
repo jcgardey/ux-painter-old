@@ -8,7 +8,7 @@ RenameElementRefactoring.prototype = new UsabilityRefactoringOnElement();
 RenameElementRefactoring.prototype.constructor = RenameElementRefactoring;
 
 RenameElementRefactoring.prototype.transform = function () {
-    var anElement = $(new XpathProcessor().getElementByXpath(this.elementXpath));
+    var anElement = $(this.getElement());
     if(typeof(anElement[0]) != "undefined") {
         anElement.html(this.newName);
     }

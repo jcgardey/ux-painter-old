@@ -2,10 +2,10 @@ function AddTooltipView() {
     this.refactoring = new AddTooltipRefactoring();
 }
 
-AddTooltipView.prototype = new RefactoringView();
+AddTooltipView.prototype = new RefactoringOnElementView();
 
 AddTooltipView.prototype.render = function () {
-    RefactoringView.prototype.render.call(this);
+    RefactoringOnElementView.prototype.render.call(this);
     $("#refactoring-form").append("<label>Tooltip</label>");
     $("#refactoring-form").append("<input type='text' id='tooltip'/>");
 

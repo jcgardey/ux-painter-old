@@ -19,7 +19,7 @@ SelectElementView.prototype.render = function () {
 }
 
 SelectElementView.prototype.onElementSelected = function (element) {
-    elementXpath = new XpathProcessor().getXPath(element);
+    elementXpath = new XPathInterpreter().getPath(element, document.body);
     this.refactoring.setElement(elementXpath);
     $("#element_xpath").text(elementXpath);
 }

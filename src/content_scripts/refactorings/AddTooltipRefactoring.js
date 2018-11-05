@@ -5,8 +5,10 @@ function AddTooltipRefactoring(elementXpath, tooltipName) {
 
 AddTooltipRefactoring.prototype = new UsabilityRefactoringOnElement();
 
+AddTooltipRefactoring.prototype.constructor = AddTooltipRefactoring;
+
 AddTooltipRefactoring.prototype.transform = function () {
-    var anElement = $(new XpathProcessor().getElementByXpath(this.elementXpath));
+    var anElement = $(this.getElement());
     if(typeof(anElement[0]) != "undefined") {
         anElement.addClass("tip");
         anElement.attr("data-tip", this.tooltipName);

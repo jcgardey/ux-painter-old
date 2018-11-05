@@ -22,6 +22,7 @@
       "content_scripts/views/RefactoringsListView.js",
       "content_scripts/views/SelectElementView.js",
       "content_scripts/views/RefactoringView.js",
+      "content_scripts/views/RefactoringOnElementView.js",
       "content_scripts/views/RenameElementView.js",
       "content_scripts/views/AddTooltipView.js",
       "content_scripts/Sidebar.js"

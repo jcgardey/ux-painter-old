@@ -7,9 +7,7 @@ function XPathInterpreter() {
     arguments.callee.instance = this;
     this.currentElement;
     this.xPaths;
-    this.engine = [new BasicIdEngine(), new ControlTypeBasedEngine(), 
-    new FullXPathEngine(), new ClassXPathEngine()]; //
-    //, new CssPathEngine()
+    this.engine = new FullXPathEngine();
 
 }
 // setear un unico engine de busqueda de xpath

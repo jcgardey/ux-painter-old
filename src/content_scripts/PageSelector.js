@@ -111,7 +111,6 @@ PageSelector.prototype.loadListeners = function(){
 			me.removeStyleClass(targetElem, me.clearBackgroundClass);
 		});
 
-		console.log(me.selectedElem);
 		sidebar.onElementSelected(me.selectedElem);
 
 		/**me.generatePreview(me.selectedElem).then(function(preview){

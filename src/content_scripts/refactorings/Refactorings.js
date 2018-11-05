@@ -24,6 +24,14 @@ UsabilityRefactoringOnElement.prototype = new UsabilityRefactoring();
 
 UsabilityRefactoringOnElement.prototype.setElement = function (elementXpath) {
     this.elementXpath = elementXpath;
+};
+
+UsabilityRefactoringOnElement.prototype.getElementXpath = function () {
+    return this.elementXpath;
+};
+
+UsabilityRefactoringOnElement.prototype.getElement = function () {
+    return new XPathInterpreter().getSingleElementByXpath(this.elementXpath, document.body);
 }
 
 
