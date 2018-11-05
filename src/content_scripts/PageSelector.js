@@ -112,6 +112,8 @@ PageSelector.prototype.loadListeners = function(){
 		});
 
 		console.log(me.selectedElem);
+		sidebar.onElementSelected(me.selectedElem);
+		me.restoreDomElementsBehaviour();
 
 		/**me.generatePreview(me.selectedElem).then(function(preview){
 

@@ -18,6 +18,8 @@
       "content_scripts/XPathInterpreter.js",
       "content_scripts/PageSelector.js",
       "content_scripts/views/RefactoringsListView.js",
+      "content_scripts/views/RefactoringView.js",
+      "content_scripts/views/RenameElementView.js",
       "content_scripts/Sidebar.js",
       "content_scripts/main.js"
     ],

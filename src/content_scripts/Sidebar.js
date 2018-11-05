@@ -25,6 +25,15 @@ Sidebar.prototype.toggle = function () {
     this.opened ? this.close(): this.open();
 };
 
+Sidebar.prototype.show = function (view) {
+    this.currentView = new view();
+    this.render();
+};
+
+Sidebar.prototype.onElementSelected = function (element) {
+    this.currentView.onElementSelected(element);
+};
+
 
 sidebar = new Sidebar();
 browser.runtime.onMessage.addListener((request, sender) => {

@@ -22,7 +22,9 @@ function UsabilityRefactoringOnElement(elementXpath) {
 
 UsabilityRefactoringOnElement.prototype = new UsabilityRefactoring();
 
-
+UsabilityRefactoringOnElement.prototype.setElement = function (elementXpath) {
+    this.elementXpath = elementXpath;
+}
 
 function RenameElementRefactoring (elementXpath, newName) {
     UsabilityRefactoringOnElement.call(this, elementXpath);
@@ -30,6 +32,20 @@ function RenameElementRefactoring (elementXpath, newName) {
 }
 
 RenameElementRefactoring.prototype = new UsabilityRefactoringOnElement();
+
+RenameElementRefactoring.prototype.setNewName = function (newName) {
+    this.newName = newName;
+}
+
+RenameElementRefactoring.getName = function () {
+    return "Rename Element";
+};
+
+RenameElementRefactoring.getView = function () {
+    return RenameElementView;
+}
+
+
 
 RenameElementRefactoring.prototype.transform = function () {
     var anElement = $(new XpathProcessor().getElementByXpath(this.elementXpath));
