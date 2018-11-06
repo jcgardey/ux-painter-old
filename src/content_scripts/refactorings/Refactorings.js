@@ -16,6 +16,10 @@ UsabilityRefactoring.prototype.execute = function () {
     this.transform();
 };
 
+UsabilityRefactoring.prototype.isOnElement = function () {
+    return false;
+}
+
 function UsabilityRefactoringOnElement(elementXpath) {
     this.elementXpath = elementXpath;
 }
@@ -32,6 +36,10 @@ UsabilityRefactoringOnElement.prototype.getElementXpath = function () {
 
 UsabilityRefactoringOnElement.prototype.getElement = function () {
     return new XPathInterpreter().getSingleElementByXpath(this.elementXpath, document.body);
+};
+
+UsabilityRefactoringOnElement.prototype.isOnElement = function () {
+    return true;
 }
 
 
@@ -58,24 +66,6 @@ AddFormValidationRefactoring.prototype.transform = function () {
         });
     }
 };
-
-
-function LinkToTopRefactoring() {
-
-}
-
-LinkToTopRefactoring.prototype = new UsabilityRefactoringOnElement();
-
-LinkToTopRefactoring.prototype.transform = function () {
-    $("body").append('<a id="scroller" style="display:block;position:fixed;bottom:30px;right:30px;width:35px;height:35px;cursor:pointer;background: url(https://selfrefactoring.s3.amazonaws.com/resources/refactorings/totop.png) no-repeat;display:none"></a>');
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 0) { $('#scroller').fadeIn(); } else { $('#scroller').fadeOut(); }
-    });
-    $('#scroller').click(function() {
-        $('body,html').animate({ scrollTop: 0 }, 400);
-        return false;
-    });
-}
 
 function DateInputIntoSelectsRefactoring(elementXpath) {
     UsabilityRefactoringOnElement.call(this, elementXpath);

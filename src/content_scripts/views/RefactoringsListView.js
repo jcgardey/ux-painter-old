@@ -1,6 +1,6 @@
 function RefactoringsListView () {
     this.refactorings = [RenameElementRefactoring, AddTooltipRefactoring,
-        AddDatePickerRefactoring, AddAutocompleteRefactoring, TurnInputIntoRadiosRefactoring, ResizeInputRefactoring];
+        AddDatePickerRefactoring, AddAutocompleteRefactoring, TurnInputIntoRadiosRefactoring, ResizeInputRefactoring, LinkToTopRefactoring];
 }
 
 RefactoringsListView.prototype.getSelectedRefactoring = function (refactoringName) {
@@ -23,14 +23,23 @@ RefactoringsListView.prototype.render = function () {
 
     $(".refactoring-item").on("click", function (e) {
         var refactoringClass = me.getSelectedRefactoring($(e.target).text());
-        pageManager.enableElementSelection({
-            "scrapperClass": "QuerySelectorScrapper",
-            "targetElementSelector": refactoringClass.targetElements(),
-            "onElementSelection": "onElementSelection",
-            "justFullPath": true
-        });
-        pageManager.preventDomElementsBehaviour();
-        sidebar.show(new SelectElementView(new refactoringClass()));
+        var refactoring = new refactoringClass();
+        if (refactoring.isOnElement()) {
+            pageManager.enableElementSelection({
+                "scrapperClass": "QuerySelectorScrapper",
+                "targetElementSelector": refactoringClass.targetElements(),
+                "onElementSelection": "onElementSelection",
+                "justFullPath": true
+            });
+            pageManager.preventDomElementsBehaviour();
+            sidebar.show(new SelectElementView(refactoring));
+        }
+        else {
+            var refactoringView = new (refactoringClass.getView());
+            refactoringView.setRefactoring(refactoring);
+            sidebar.show(refactoringView);
+        }
+
     });
 };
 
