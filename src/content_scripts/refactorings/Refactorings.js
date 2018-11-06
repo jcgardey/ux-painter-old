@@ -68,20 +68,6 @@ AddFormValidationRefactoring.prototype.transform = function () {
 };
 
 
-function TurnAttributeIntoLinkRefactoring(elementXpath, targetURL) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.targetURL = targetURL;
-
-}
-
-TurnAttributeIntoLinkRefactoring.prototype = new UsabilityRefactoringOnElement();
-
-TurnAttributeIntoLinkRefactoring.prototype.transform = function () {
-    var anElement = $(new XpathProcessor().getElementByXpath(this.elementXpath));
-    if (typeof(anElement[0]) != "undefined") {
-        anElement.replaceWith($("<a href='" + this.targetURL + "'>" + anElement[0].outerHTML + "</a>"));
-    }
-};
 
 function AddProcessingPageRefactoring(formXpath) {
     UsabilityRefactoringOnElement.call(this, formXpath);
