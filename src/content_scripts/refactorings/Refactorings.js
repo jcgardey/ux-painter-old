@@ -67,22 +67,6 @@ AddFormValidationRefactoring.prototype.transform = function () {
     }
 };
 
-function DateInputIntoSelectsRefactoring(elementXpath) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    
-}
-
-DateInputIntoSelectsRefactoring.prototype = new UsabilityRefactoringOnElement();
-
-DateInputIntoSelectsRefactoring.prototype.transform = function () {
-    var dateInput = $(new XpathProcessor().getElementByXpath(this.elementXpath));
-    if (typeof(dateInput[0]) != "undefined") {
-        var submitFieldName = dateInput.attr("name");
-        dateInput.attr("name", "");
-        dateInput.dateDropdowns({ submitFieldName: submitFieldName });
-    }
-};
-
 
 function TurnAttributeIntoLinkRefactoring(elementXpath, targetURL) {
     UsabilityRefactoringOnElement.call(this, elementXpath);

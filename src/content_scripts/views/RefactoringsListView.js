@@ -1,6 +1,7 @@
 function RefactoringsListView () {
     this.refactorings = [RenameElementRefactoring, AddTooltipRefactoring,
-        AddDatePickerRefactoring, AddAutocompleteRefactoring, TurnInputIntoRadiosRefactoring, ResizeInputRefactoring, LinkToTopRefactoring];
+        AddDatePickerRefactoring, AddAutocompleteRefactoring,
+        TurnInputIntoRadiosRefactoring, ResizeInputRefactoring, LinkToTopRefactoring, DateInputIntoSelectsRefactoring];
 }
 
 RefactoringsListView.prototype.getSelectedRefactoring = function (refactoringName) {

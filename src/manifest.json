@@ -21,6 +21,7 @@
       "content_scripts/refactorings/TurnInputIntoRadiosRefactoring.js",
       "content_scripts/refactorings/ResizeInputRefactoring.js",
       "content_scripts/refactorings/LinkToTopRefactoring.js",
+      "content_scripts/refactorings/DateInputIntoSelectsRefactoring.js",
       "content_scripts/XpathProcessor.js",
       "content_scripts/XPathInterpreter.js",
       "content_scripts/PageSelector.js",
@@ -35,6 +36,7 @@
       "content_scripts/views/ResizeInputView.js",
       "content_scripts/views/TurnInputIntoRadiosView.js",
       "content_scripts/views/LinkToTopView.js",
+      "content_scripts/views/DateInputIntoSelectsView.js",
       "content_scripts/Sidebar.js"
     ],
     "css": [
