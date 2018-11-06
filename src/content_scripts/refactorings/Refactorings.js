@@ -59,20 +59,6 @@ AddFormValidationRefactoring.prototype.transform = function () {
     }
 };
 
-function ResizeInputRefactoring(elementXpath, inputSize) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.inputSize = inputSize;
-}
-
-ResizeInputRefactoring.prototype = new UsabilityRefactoringOnElement();
-
-ResizeInputRefactoring.prototype.transform = function () {
-    var input = $(new XpathProcessor().getElementByXpath(this.elementXpath));
-    if (typeof(input[0]) != "undefined") {
-        input.width(this.inputSize);
-    }
-}
-
 
 function LinkToTopRefactoring() {
 
