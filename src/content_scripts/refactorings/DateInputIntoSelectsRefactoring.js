@@ -20,7 +20,7 @@ DateInputIntoSelectsRefactoring.getName = function () {
 };
 
 DateInputIntoSelectsRefactoring.getView = function () {
-    return DateInputIntoSelectsView;
+    return RefactoringOnElementView;
 };
 
 DateInputIntoSelectsRefactoring.targetElements = function () {

@@ -21,5 +21,5 @@ AddDatePickerRefactoring.targetElements = function () {
 };
 
 AddDatePickerRefactoring.getView = function () {
-    return AddDatePickerView;
+    return RefactoringOnElementView;
 };

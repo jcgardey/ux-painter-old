@@ -19,7 +19,7 @@ LinkToTopRefactoring.prototype.transform = function () {
 };
 
 LinkToTopRefactoring.getView = function () {
-    return LinkToTopView;
+    return RefactoringView;
 };
 
 LinkToTopRefactoring.getName = function () {

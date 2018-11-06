@@ -31,12 +31,9 @@
       "content_scripts/views/RefactoringOnElementView.js",
       "content_scripts/views/RenameElementView.js",
       "content_scripts/views/AddTooltipView.js",
-      "content_scripts/views/AddDatePickerView.js",
       "content_scripts/views/AddAutocompleteView.js",
       "content_scripts/views/ResizeInputView.js",
       "content_scripts/views/TurnInputIntoRadiosView.js",
-      "content_scripts/views/LinkToTopView.js",
-      "content_scripts/views/DateInputIntoSelectsView.js",
       "content_scripts/Sidebar.js"
     ],
     "css": [
