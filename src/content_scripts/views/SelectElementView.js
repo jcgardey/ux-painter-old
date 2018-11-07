@@ -13,6 +13,10 @@ SelectElementView.prototype.render = function () {
     var me = this;
 
     $("#refactoring-continue").on("click", function () {
+        if (!me.refactoring.getElement()) {
+            alert("Select an element to continue");
+            return false;
+        }
         var refactoringView = new (me.refactoring.constructor.getView());
         refactoringView.setRefactoring(me.refactoring);
         pageManager.restoreDomElementsBehaviour();

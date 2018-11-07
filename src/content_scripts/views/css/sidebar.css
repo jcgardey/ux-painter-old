@@ -13,16 +13,13 @@ ul.refactorings-list, #required-input-list {
     list-style-type: none;
 }
 
-ul.refactorings-list li {
+ul.refactorings-list li a {
     cursor: pointer;
     margin: 10px 5px;
-}
-
-ul.refactorings-list li a {
-    color: black;
     font-weight: bold;
     display: block;
     text-decoration: none;
+    color: black;
 }
 
 ul.refactorings-list li:hover {
@@ -47,12 +44,17 @@ ul.refactorings-list li:hover {
     font-weight: bold;
 }
 
-#refactoring-form input {
+#refactoring-form input, #refactoring-form select {
     display: block;
     border-radius: 3px;
+    width: 50%;
 }
 
 #required-input-list {
     font-weight: bold;
+}
+
+.refactorings-form-group {
+    margin: 20px 0px;
 }
 

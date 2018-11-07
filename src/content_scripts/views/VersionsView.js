@@ -8,10 +8,10 @@ VersionsView.prototype.getVersions = function () {
 
 VersionsView.prototype.render = function () {
     $("#refactorings-sidebar").append("<h4 style='text-align:center'>Versions</h4>");
-    $("#refactorings-sidebar").append("<ul id='refactorings-list'></ul>");
+    $("#refactorings-sidebar").append("<ul class='refactorings-list' id='versions-list'></ul>");
 
     $(this.getVersions()).each(function (i, version) {
-       $("#versions-list").append("<li>" + version + "</li>");
+       $("#versions-list").append("<li><a href='#'>" + version + "</a></li>");
     });
 
     $("#refactorings-sidebar").append("<div class='refactoring-buttons'><button id='new-version'>New Version</button></div>");
