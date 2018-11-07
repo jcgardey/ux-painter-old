@@ -13,15 +13,22 @@ AddFormValidationRefactoring.prototype.transform = function () {
     var formElement = $(this.getElement());
     var me = this;
     if (typeof(formElement[0]) != "undefined") {
-        formElement.submit(function(e) {
-            $.each(me.requiredInputXpaths, function(i, xpath) {
-                    var input = new XPathInterpreter().getSingleElementByXpath(xpath, document.body);
-                    if (!input || !$(input).val()) {
-                        $(input).css("border-color", "rgb(255,0,0)");
-                        e.preventDefault();
-                        return false;
-                    }
-                });
+        formElement.submit(function (e) {
+            var invalidInputs = false;
+            $.each(me.requiredInputXpaths, function (i, xpath) {
+                var input = new XPathInterpreter().getSingleElementByXpath(xpath, document.body);
+                if (!input || !$(input).val()) {
+                    $(input).css("border-color", "rgb(255,0,0)");
+                    invalidInputs = true;
+                }
+            });
+            if (invalidInputs) {
+                e.preventDefault();
+                return false;
+            }
+            else {
+                formElement[0].submit();
+            }
         });
 
     }
