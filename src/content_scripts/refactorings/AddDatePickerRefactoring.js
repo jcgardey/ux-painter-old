@@ -17,7 +17,7 @@ AddDatePickerRefactoring.getName = function () {
 };
 
 AddDatePickerRefactoring.targetElements = function () {
-    return "input";
+    return "input[type='text']";
 };
 
 AddDatePickerRefactoring.getView = function () {

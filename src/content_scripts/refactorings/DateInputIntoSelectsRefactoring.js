@@ -23,7 +23,7 @@ DateInputIntoSelectsRefactoring.getView = function () {
 };
 
 DateInputIntoSelectsRefactoring.targetElements = function () {
-    return "input";
+    return "input[type='text']";
 }
 
 

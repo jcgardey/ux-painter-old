@@ -34,5 +34,5 @@ ResizeInputRefactoring.getName = function () {
 };
 
 ResizeInputRefactoring.targetElements = function () {
-    return "input";
+    return "input[type='text'], input[type='password']";
 };

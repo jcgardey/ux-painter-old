@@ -33,7 +33,7 @@ AddTooltipRefactoring.getName = function () {
 };
 
 AddTooltipRefactoring.targetElements = function () {
-    return "a, div, img";
+    return "a, div, img, input[type='button'], input[type='submit'], span, p, button";
 };
 
 AddTooltipRefactoring.getView = function () {
