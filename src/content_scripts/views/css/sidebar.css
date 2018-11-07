@@ -1,20 +1,58 @@
 #refactorings-sidebar {
     float: right;
-    position: absolute;
-    width: 300px;
+    position: fixed;
+    width: 400px;
     z-index: 99999;
     top: 0px;
     right: 0px;
     background-color: white;
-    margin: 1px solid gray;
+    margin: 2px solid gray;
 }
 
-ul.refactorings-list {
+ul.refactorings-list, #required-input-list {
     list-style-type: none;
 }
 
-ul.refactorings-list li a {
+ul.refactorings-list li {
     cursor: pointer;
+    margin: 10px 5px;
+}
+
+ul.refactorings-list li a {
+    color: black;
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+}
+
+ul.refactorings-list li:hover {
+    background-color: #cccccc;
+}
+
+.refactoring-buttons {
     margin: 15px;
+}
+
+.refactorings-label {
+    font-weight: bold;
+    margin: 5px 10px;
+}
+
+#refactoring-form {
+    margin: 5px 20px;
+}
+
+#refactoring-form label {
+    display: block;
+    font-weight: bold;
+}
+
+#refactoring-form input {
+    display: block;
+    border-radius: 3px;
+}
+
+#required-input-list {
+    font-weight: bold;
 }
 

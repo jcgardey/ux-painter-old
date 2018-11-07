@@ -4,9 +4,11 @@ function SelectElementView(refactoring) {
 }
 
 SelectElementView.prototype.render = function () {
-    $("#refactorings-sidebar").append("<h4>Select an Element</h4>");
-    $("#refactorings-sidebar").append("<p>Target Element:</p> <span id='element_xpath'></span>");
-    $("#refactorings-sidebar").append("<div class='refactoring-buttons'><button id='refactoring-continue'>Continue</button><button id='refactoring-back'>Back</button></div>");
+    $("#refactorings-sidebar").append("<h4 style='text-align: center'>Select an Element</h4>");
+    $("#refactorings-sidebar").append("<p class='refactorings-label'>Target Element</p>");
+    $("#refactorings-sidebar").append("<p class='refactorings-label' id='element_xpath'></p>");
+    $("#refactorings-sidebar").append("<div class='refactoring-buttons'><button id='refactoring-continue'>Continue</button></div>");
+    $("#refactorings-sidebar").append("<div class='refactoring-buttons'><button id='refactoring-back'>Back</button></div>");
 
     var me = this;
 
