@@ -17,7 +17,7 @@ AddProcessingPageRefactoring.prototype.transform = function () {
         button.css(submitCSS);
         button.click(function() {
             $("#overlay").show();
-            setTimeout(function() { form.submit() }, 1);
+            setTimeout(function() { form[0].submit() }, 1);
         });
         submit.hide().after(button);
     }
