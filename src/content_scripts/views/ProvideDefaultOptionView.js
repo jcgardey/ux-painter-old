@@ -7,10 +7,13 @@ ProvideDefaultOptionView.prototype = new RefactoringOnElementView();
 ProvideDefaultOptionView.prototype.render = function () {
     RefactoringOnElementView.prototype.render.call(this);
     $("#refactoring-form").append("<label>Default Option</label>");
-    $("#refactoring-form").append("<input type='text' id='refactoring_default_option'/>");
+
+    var options = $(this.refactoring.getElement()).find("option");
+    $("#refactoring-form").append("<select type='text' id='refactoring_default_option'></select>");
+    $("#refactoring_default_option").append(options.clone());
 };
 
 ProvideDefaultOptionView.prototype.setRefactoringArguments = function () {
-    var defaultOption = $("#refactoring_default_option").val();
-    this.refactoring.setDefaultOption(defaultOption);
+    var defaultOptionIndex = $('#refactoring_default_option').find("option:selected").index();
+    this.refactoring.setDefaultOption(defaultOptionIndex);
 }
