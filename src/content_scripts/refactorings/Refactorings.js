@@ -40,7 +40,7 @@ UsabilityRefactoringOnElement.prototype.getElement = function () {
 
 UsabilityRefactoringOnElement.prototype.isOnElement = function () {
     return true;
-}
+};
 
 
 function AddFormValidationRefactoring(formXpath, requiredInputXpaths) {
@@ -67,19 +67,7 @@ AddFormValidationRefactoring.prototype.transform = function () {
     }
 };
 
-function ProvideDefaultOptionRefactoring(elementXpath, defaultOptionIndex) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.defaultOptionIndex = defaultOptionIndex;
-}
 
-ProvideDefaultOptionRefactoring.prototype = new UsabilityRefactoringOnElement();
-
-ProvideDefaultOptionRefactoring.prototype.transform = function () {
-    var element = $(new XpathProcessor().getElementByXpath(this.elementXpath));
-    if (typeof(element[0]) != "undefined") {
-        element.prop("selectedIndex", this.defaultOptionIndex);
-    }
-};
 
 
 

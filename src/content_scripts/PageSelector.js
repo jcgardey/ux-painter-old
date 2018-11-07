@@ -182,7 +182,7 @@ PageSelector.prototype.getAllVisibleDomElements = function(){
 	return document.querySelectorAll("body, input, div, a, img, span, label, ul, li, p, pre, cite, em"); //:not(.first)
 };
 PageSelector.prototype.getAllVisibleDomElementsButBody = function(){
-	return document.querySelectorAll("div, input, a, img, span, label, ul, li, p, pre, cite, em"); //:not(.first)
+	return document.querySelectorAll("div, input, a, img, span, label, ul, li, p, pre, cite, em, form, select"); //:not(.first)
 };
 PageSelector.prototype.getCurrentSidebarElements = function(){
 	
