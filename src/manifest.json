@@ -25,6 +25,7 @@
       "content_scripts/refactorings/TurnAttributeIntoLinkRefactoring.js",
       "content_scripts/refactorings/AddProcessingPageRefactoring.js",
       "content_scripts/refactorings/ProvideDefaultOptionRefactoring.js",
+      "content_scripts/refactorings/AddFormValidationRefactoring.js",
       "content_scripts/XpathProcessor.js",
       "content_scripts/XPathInterpreter.js",
       "content_scripts/PageSelector.js",
@@ -39,6 +40,7 @@
       "content_scripts/views/TurnInputIntoRadiosView.js",
       "content_scripts/views/TurnAttributeIntoLinkView.js",
       "content_scripts/views/ProvideDefaultOptionView.js",
+      "content_scripts/views/AddFormValidationView.js",
       "content_scripts/Sidebar.js"
     ],
     "css": [

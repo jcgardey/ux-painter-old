@@ -43,29 +43,7 @@ UsabilityRefactoringOnElement.prototype.isOnElement = function () {
 };
 
 
-function AddFormValidationRefactoring(formXpath, requiredInputXpaths) {
-    UsabilityRefactoringOnElement.call(this, formXpath);
-    this.requiredInputXpaths = requiredInputXpaths;
-}
 
-AddFormValidationRefactoring.prototype = new UsabilityRefactoringOnElement();
-
-AddFormValidationRefactoring.prototype.transform = function () {
-    var formElement = $(new XpathProcessor().getElementByXpath(this.elementXpath));
-    if (typeof(formElement[0]) != "undefined") {
-        $(document).ready(function() {
-            formElement.submit(function(e) {
-                $.each(this.requiredInputXpaths, function(i, xpath) {
-                    var input = new XpathProcessor().getElementByXpath(xpath);
-                    if (!input || !$(input).val()) {
-                        $(input).css("border-color", "rgb(255,0,0)");
-                    }
-                });
-                e.preventDefault();
-            });
-        });
-    }
-};
 
 
 
