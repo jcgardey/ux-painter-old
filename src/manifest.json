@@ -29,6 +29,8 @@
       "content_scripts/XpathProcessor.js",
       "content_scripts/XPathInterpreter.js",
       "content_scripts/PageSelector.js",
+      "content_scripts/views/NewVersionView.js",
+      "content_scripts/views/VersionsView.js",
       "content_scripts/views/RefactoringsListView.js",
       "content_scripts/views/SelectElementView.js",
       "content_scripts/views/RefactoringView.js",

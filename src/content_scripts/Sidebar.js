@@ -1,5 +1,5 @@
 function Sidebar () {
-    this.currentView = new RefactoringsListView ();
+    this.currentView = new VersionsView();
     this.opened = false;
 }
 

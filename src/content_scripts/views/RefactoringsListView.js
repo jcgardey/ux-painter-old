@@ -23,6 +23,8 @@ RefactoringsListView.prototype.render = function () {
         $(list).append("<li><a data-refactoring='"+  refactoringClass + "'class='refactoring-item'>" + refactoringClass.getName() + "</a></li>");
     });
 
+    $("#refactorings-sidebar").append("<div class='refactoring-buttons'><button type='button' id='refactoring-back'>Back</button><button type='button' id='save-version'>Save Version</button></div>");
+
     $(".refactoring-item").on("click", function (e) {
         var refactoringClass = me.getSelectedRefactoring($(e.target).text());
         var refactoring = new refactoringClass();
@@ -42,6 +44,14 @@ RefactoringsListView.prototype.render = function () {
             sidebar.show(refactoringView);
         }
 
+    });
+
+    $("#save-version").on("click", function () {
+        sidebar.show(new NewVersionView());
+    });
+
+    $("#refactoring-back").on("click", function () {
+        sidebar.show(new VersionsView());
     });
 };
 
