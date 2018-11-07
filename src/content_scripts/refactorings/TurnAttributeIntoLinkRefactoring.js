@@ -1,7 +1,8 @@
-function TurnAttributeIntoLinkRefactoring(elementXpath, targetURL) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.targetURL = targetURL;
-
+function TurnAttributeIntoLinkRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this, json);
+    if (json) {
+        this.targetURL = targetURL;
+    }
 }
 
 TurnAttributeIntoLinkRefactoring.prototype = new UsabilityRefactoringOnElement();
@@ -16,7 +17,13 @@ TurnAttributeIntoLinkRefactoring.prototype.transform = function () {
 
 TurnAttributeIntoLinkRefactoring.prototype.setTargetURL = function (url) {
     this.targetURL = url;
-}
+};
+
+TurnAttributeIntoLinkRefactoring.prototype.serialize = function () {
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    json.targetURL = this.targetURL;
+    return json;
+};
 
 TurnAttributeIntoLinkRefactoring.getName = function () {
     return "Turn Attribute into Link";

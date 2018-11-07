@@ -16,6 +16,12 @@ RenameElementRefactoring.prototype.transform = function () {
 
 RenameElementRefactoring.prototype.setNewName = function (newName) {
     this.newName = newName;
+};
+
+RenameElementRefactoring.prototype.serialize = function () {
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    json.newName = this.newName;
+    return json;
 }
 
 RenameElementRefactoring.getName = function () {

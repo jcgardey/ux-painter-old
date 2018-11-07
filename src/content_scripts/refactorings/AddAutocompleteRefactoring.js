@@ -1,6 +1,9 @@
-function AddAutocompleteRefactoring(elementXpath, values) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.values = values;
+function AddAutocompleteRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this, json);
+    if (json) {
+        this.values = json.values;
+    }
+
 };
 
 AddAutocompleteRefactoring.prototype = new UsabilityRefactoringOnElement();
@@ -16,6 +19,12 @@ AddAutocompleteRefactoring.prototype.transform = function () {
 
 AddAutocompleteRefactoring.prototype.setValues = function (values) {
     this.values = values;
+};
+
+AddAutocompleteRefactoring.prototype.serialize = function () {
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    json.values = this.values;
+    return json;
 }
 
 AddAutocompleteRefactoring.getName = function () {

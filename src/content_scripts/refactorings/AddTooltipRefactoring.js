@@ -1,6 +1,8 @@
-function AddTooltipRefactoring(elementXpath, tooltipName) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.tooltipName = tooltipName;
+function AddTooltipRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this, json);
+    if (json) {
+        this.tooltipName = json.tooltip;
+    }
 }
 
 AddTooltipRefactoring.prototype = new UsabilityRefactoringOnElement();
@@ -15,6 +17,12 @@ AddTooltipRefactoring.prototype.transform = function () {
         $(".tip").tipr();
     }
 };
+
+AddTooltipRefactoring.prototype.serialize = function () {
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    json.tooltip = this.tooltipName;
+    return json;
+}
 
 AddTooltipRefactoring.prototype.setTooltipName = function (tooltipName) {
     this.tooltipName = tooltipName;

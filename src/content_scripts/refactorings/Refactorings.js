@@ -18,10 +18,20 @@ UsabilityRefactoring.prototype.execute = function () {
 
 UsabilityRefactoring.prototype.isOnElement = function () {
     return false;
+};
+
+UsabilityRefactoring.prototype.serialize = function () {
+    return {"refactoring": this.constructor.name};
+};
+
+UsabilityRefactoring.createRefactoring = function (json) {
+    return new window[json.refactoring](json);
 }
 
-function UsabilityRefactoringOnElement(elementXpath) {
-    this.elementXpath = elementXpath;
+function UsabilityRefactoringOnElement(json) {
+    if (json) {
+        this.elementXpath = json.elementXpath;
+    }
 }
 
 UsabilityRefactoringOnElement.prototype = new UsabilityRefactoring();
@@ -37,6 +47,12 @@ UsabilityRefactoringOnElement.prototype.getElementXpath = function () {
 UsabilityRefactoringOnElement.prototype.getElement = function () {
     return new XPathInterpreter().getSingleElementByXpath(this.elementXpath, document.body);
 };
+
+UsabilityRefactoringOnElement.prototype.serialize = function () {
+    var json = UsabilityRefactoring.prototype.serialize.call(this);
+    json.elementXpath = this.elementXpath;
+    return json;
+}
 
 UsabilityRefactoringOnElement.prototype.isOnElement = function () {
     return true;

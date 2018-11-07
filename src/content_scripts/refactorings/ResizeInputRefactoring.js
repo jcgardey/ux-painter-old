@@ -1,6 +1,8 @@
-function ResizeInputRefactoring(elementXpath, inputSize) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.inputSize = inputSize;
+function ResizeInputRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this, json);
+    if (json) {
+        this.inputSize = json.inputSize;
+    }
 }
 
 ResizeInputRefactoring.prototype = new UsabilityRefactoringOnElement();
@@ -15,6 +17,12 @@ ResizeInputRefactoring.prototype.transform = function () {
 
 ResizeInputRefactoring.prototype.setInputSize = function (inputSize) {
     this.inputSize = inputSize;
+};
+
+ResizeInputRefactoring.prototype.serialize = function () {
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    json.inputSize = this.inputSize;
+    return json;
 };
 
 ResizeInputRefactoring.getView = function () {

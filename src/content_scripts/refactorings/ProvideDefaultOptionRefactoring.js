@@ -17,8 +17,10 @@ ProvideDefaultOptionRefactoring.prototype.setDefaultOption = function (option) {
     this.defaultOptionIndex = option;
 };
 
-ProvideDefaultOptionRefactoring.prototype.getSelectionElementEvent = function () {
-    return "mousedown";
+ProvideDefaultOptionRefactoring.prototype.serialize = function () {
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    json.defaultOptionIndex = this.defaultOptionIndex;
+    return json;
 }
 
 

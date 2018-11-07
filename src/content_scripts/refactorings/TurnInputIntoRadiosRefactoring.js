@@ -1,6 +1,8 @@
-function TurnInputIntoRadiosRefactoring(elementXpath, values) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.values = values;
+function TurnInputIntoRadiosRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this, json);
+    if (json) {
+        this.values = values;
+    }
 }
 
 TurnInputIntoRadiosRefactoring.prototype = new UsabilityRefactoringOnElement();
@@ -9,6 +11,12 @@ TurnInputIntoRadiosRefactoring.prototype.constructor = TurnInputIntoRadiosRefact
 
 TurnInputIntoRadiosRefactoring.prototype.setValues = function (values) {
     this.values = values;
+};
+
+TurnInputIntoRadiosRefactoring.prototype.serialize = function () {
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    json.values = this.values;
+    return json;
 };
 
 

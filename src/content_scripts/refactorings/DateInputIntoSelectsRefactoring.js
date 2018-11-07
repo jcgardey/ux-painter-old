@@ -1,6 +1,5 @@
-function DateInputIntoSelectsRefactoring(elementXpath) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-
+function DateInputIntoSelectsRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this, json);
 }
 
 DateInputIntoSelectsRefactoring.prototype = new UsabilityRefactoringOnElement();

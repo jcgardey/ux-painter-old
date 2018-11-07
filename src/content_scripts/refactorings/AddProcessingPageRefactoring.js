@@ -1,5 +1,5 @@
-function AddProcessingPageRefactoring(formXpath) {
-    UsabilityRefactoringOnElement.call(this, formXpath);
+function AddProcessingPageRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this, json);
 }
 
 AddProcessingPageRefactoring.prototype = new UsabilityRefactoringOnElement();

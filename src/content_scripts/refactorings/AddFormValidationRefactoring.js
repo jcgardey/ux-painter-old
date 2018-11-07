@@ -1,6 +1,9 @@
-function AddFormValidationRefactoring(formXpath, requiredInputXpaths) {
-    UsabilityRefactoringOnElement.call(this, formXpath);
-    this.requiredInputXpaths = requiredInputXpaths;
+function AddFormValidationRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this, json);
+    if (json) {
+        this.requiredInputXpaths = json.requiredInputXpaths;
+    }
+
 }
 
 AddFormValidationRefactoring.prototype = new UsabilityRefactoringOnElement();
@@ -23,6 +26,12 @@ AddFormValidationRefactoring.prototype.transform = function () {
 
     }
 };
+
+AddFormValidationRefactoring.prototype.serialize = function () {
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    json.requiredInputXpaths = this.requiredInputXpaths;
+    return json;
+}
 
 AddFormValidationRefactoring.prototype.setRequiredInputs = function (requiredInputs) {
     this.requiredInputXpaths = requiredInputs;

@@ -1,5 +1,5 @@
-function AddDatePickerRefactoring(elementXpath) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
+function AddDatePickerRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this, json);
 }
 
 AddDatePickerRefactoring.prototype = new UsabilityRefactoringOnElement();
