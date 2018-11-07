@@ -1,6 +1,8 @@
-function RenameElementRefactoring (elementXpath, newName) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.newName = newName;
+function RenameElementRefactoring (json) {
+    UsabilityRefactoringOnElement.call(this, json);
+    if (json) {
+        this.newName = json.newName;
+    }
 }
 
 RenameElementRefactoring.prototype = new UsabilityRefactoringOnElement();
