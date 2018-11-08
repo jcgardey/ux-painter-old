@@ -5,8 +5,9 @@
     z-index: 99999;
     top: 0px;
     right: 0px;
-    background-color: white;
-    margin: 2px solid gray;
+    background-color: #ffffe6;
+    border: 2px solid #f5f5f0;
+    border-radius: 5px;
 }
 
 ul.refactorings-list, #required-input-list {
@@ -48,6 +49,7 @@ ul.refactorings-list li:hover {
     display: block;
     border-radius: 3px;
     width: 50%;
+    background-color: #f5f5f0;
 }
 
 #required-input-list {
