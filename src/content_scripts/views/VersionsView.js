@@ -25,7 +25,7 @@ VersionsView.prototype.render = function () {
 
     $("#refactorings-sidebar").append("<div class='refactoring-buttons'><span>Current Version: " + sidebar.refactoringSessionManager.getCurrentVersion() + "</span></div>");
 
-    $("#refactorings-sidebar").append("<div class='refactoring-buttons'><button id='new-version'>New Version</button></div>");
+    $("#refactorings-sidebar").append("<div class='refactoring-buttons'><button id='new-version'>Add Refactoring</button></div>");
 
     $(".application_version").on("click", function () {
         if(this.id != "original_application_version")
@@ -43,7 +43,6 @@ VersionsView.prototype.render = function () {
 
     $("#new-version").on("click", function () {
         sidebar.show(new RefactoringsListView());
-        sidebar.refactoringSessionManager.resetSession();
     });
 
     $("#add-refactoring-buttons").on("click", function () {

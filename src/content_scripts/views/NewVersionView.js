@@ -11,6 +11,11 @@ NewVersionView.prototype.render = function () {
     $("#refactorings-sidebar").append("<div class='refactoring-buttons'><button id='save-version-button'>Save</button></div>");
     $("#refactorings-sidebar").append("<div class='refactoring-buttons'><button type='button' id='refactoring-back'>Cancel</button></div>");
 
+    var currentVersion = sidebar.refactoringSessionManager.getCurrentVersion();
+    if (currentVersion != "Original") {
+        $("#version_name").val(currentVersion);
+    }
+
     $("#save-version-button").on("click", function () {
         var versionName = $("#version_name").val();
         sidebar.refactoringSessionManager.saveSessionAsVersion(versionName);

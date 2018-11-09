@@ -1,7 +1,7 @@
 function TurnAttributeIntoLinkRefactoring(json) {
     UsabilityRefactoringOnElement.call(this, json);
     if (json) {
-        this.targetURL = targetURL;
+        this.targetURL = json.targetURL;
     }
 }
 

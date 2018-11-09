@@ -3,15 +3,10 @@ function InstantiatedRefactoring(url, aRefactoring){
 	this.refactoring = aRefactoring;
 }
 
-InstantiatedRefactoring.prototype.execute = function(){
-	console.log("A ver si aplica: " + this.refactoring);
-	if(this.isPageATarget(document.location.href)){
-		console.log("aplicando: " + this.refactoring);
-		console.log(this.refactoring.refactoring);
+InstantiatedRefactoring.prototype.execute = function() {
+	if(this.isPageATarget(document.location.href)) {
 		let refactoring_class = eval(this.refactoring.refactoring);
-		console.log(refactoring_class);
 		let refactoring_instance = new refactoring_class(this.refactoring);
-		console.log(refactoring_instance);
 		refactoring_instance.execute();
 	}
 }

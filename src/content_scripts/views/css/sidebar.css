@@ -64,7 +64,7 @@ ul.refactorings-list li a:hover {
     width: 50%;
 }
 
-.delete_application_version {
-    color: red;
+a.delete_application_version {
+    color: red !important;
 }
 
