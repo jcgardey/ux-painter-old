@@ -1,11 +1,15 @@
 function RefactoringStorage(){
 	if (localStorage.getItem("current_version") == null)
 		localStorage.setItem("current_version", "undefined");
+
+	if (localStorage.getItem("application_versions") == null)
+		localStorage.setItem("application_versions", JSON.stringify([]));
 }
 
-RefactoringStorage.prototype.storeVersion = function(name, version_data){
+RefactoringStorage.prototype.storeVersion = function(objectVersion){
 	let versions = this.getVersions();
-	versions.push({"name":name, "version_data": version_data});
+	versions.push(objectVersion);
+	this.storeVersions(versions);
 }
 
 RefactoringStorage.prototype.getVersions = function(){
@@ -13,18 +17,23 @@ RefactoringStorage.prototype.getVersions = function(){
 }
 
 
+RefactoringStorage.prototype.storeVersions = function(versions){
+	localStorage.setItem("application_versions", JSON.stringify(versions));
+}
+
 RefactoringStorage.prototype.getVersion = function(aName){
-	let versions = JSON.parse(localStorage.getItem("application_versions"));
+	let versions = this.getVersions();
 	for (var i = versions.length - 1; i >= 0; i--) {
-		if(versions[i]["name"] == aName)
+		if(versions[i]["version_name"] == aName){
 			return versions[i];
+		}
 	}
 }
 
-RefactoringStorage.prototype.current_version = function(){
+RefactoringStorage.prototype.currentVersion = function(){
 	return localStorage.getItem("current_version");
 }
 
-RefactoringStorage.prototype.set_current_version = function(version_name){
+RefactoringStorage.prototype.setCurrentVersion = function(version_name){
 	return localStorage.setItem("current_version",version_name);
 }

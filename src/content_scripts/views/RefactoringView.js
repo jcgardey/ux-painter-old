@@ -12,11 +12,12 @@ RefactoringView.prototype.render = function () {
 
     var me = this;
     $("#apply").on("click", function () {
+        let url = $("#url_for_instance").val();
         me.setRefactoringArguments();
         me.refactoring.execute();
-        sidebar.show(new RefactoringsListView());
+        sidebar.show(new RefactoringsListView());        
+        sidebar.refactoringSessionManager.addRefactoringForURL(url, me.refactoring);
     });
-
 
     $("#cancel").on("click", function () {
        sidebar.show(new RefactoringsListView());
@@ -29,5 +30,5 @@ RefactoringView.prototype.setRefactoring = function (refactoring) {
 
 RefactoringView.prototype.setRefactoringArguments = function () {
 
-}
+};
 

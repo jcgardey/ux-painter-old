@@ -12,6 +12,7 @@ NewVersionView.prototype.render = function () {
 
     $("#save-version-button").on("click", function () {
         var versionName = $("#version_name").val();
+        sidebar.refactoringSessionManager.saveSessionAsVersion(versionName);
         sidebar.show(new VersionsView());
     });
 };

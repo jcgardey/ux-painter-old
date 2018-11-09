@@ -1,6 +1,7 @@
 function Sidebar () {
     this.currentView = new VersionsView();
     this.opened = false;
+    this.refactoringSessionManager = new RefactoringSessionManager();
 }
 
 Sidebar.prototype.render = function () {

@@ -2,7 +2,13 @@
 function RefactoringSessionManager() {
 	this.refactoring_storage = new RefactoringStorage();
 	this.instantiated_refactorings = [];
-	this.versions = [];
+	this.currentVersion = null;
+
+	if (this.refactoring_storage.currentVersion() != "undefined"){
+		this.currentVersion = this.refactoring_storage.getVersion(this.refactoring_storage.currentVersion());
+		this.executeCurrentVersion();
+	}
+
 }
 
 RefactoringSessionManager.prototype.addRefactoringForURL = function (url, aRefactoring) {
@@ -11,12 +17,11 @@ RefactoringSessionManager.prototype.addRefactoringForURL = function (url, aRefac
 
 RefactoringSessionManager.prototype.saveSessionAsVersion = function(version_name) {
 	let serialized_refactorings = this.serializeRefactorings();
-	this.versions.push({"version_name":version_name, "data":serialized_refactorings});
-	//this.storeAsVersion(version_name, serialized_refactorings);
+	this.storeAsVersion(version_name, serialized_refactorings);
 }
 
 RefactoringSessionManager.prototype.getVersions = function () {
-	return this.versions;
+	return this.refactoring_storage.getVersions();
 }
 
 RefactoringSessionManager.prototype.serializeRefactorings = function () {
@@ -27,20 +32,23 @@ RefactoringSessionManager.prototype.serializeRefactorings = function () {
 }
 
 RefactoringSessionManager.prototype.storeAsVersion = function(version_name,serialized_refactorings){
-	let objectToSerializedAndSendInMessage = {"serialized_refactorings":serialized_refactorings, "version_name":version_name};
+	 this.refactoring_storage.storeVersion({"version_name":version_name, "serialized_refactorings":serialized_refactorings});
 
 }
 
-RefactoringSessionManager.prototype.user_version = function(aName) {
-	this.refactoring_storage.set_current_version(aName);
+RefactoringSessionManager.prototype.useVersion = function(aName) {
+	this.refactoring_storage.setCurrentVersion(aName);
+	document.location.reload();
 }
 
 RefactoringSessionManager.prototype.resetSession = function(){
 	this.instantiated_refactorings = [];
-	//document.location.reload();
 }
 
-
-RefactoringSessionManager.prototype.onLoad = function(){
-
+RefactoringSessionManager.prototype.executeCurrentVersion = function(){
+	console.log("Voy a ejecturar la version actual que tiene");
+	console.log(this.currentVersion["version_name"]);
+	for (var i = this.currentVersion.serialized_refactorings.length - 1; i >= 0; i--) {
+		console.log(this.currentVersion.serialized_refactorings[i]);
+	}
 }
