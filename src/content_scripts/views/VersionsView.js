@@ -15,7 +15,7 @@ VersionsView.prototype.render = function () {
     $("#refactorings-sidebar").append("<ul class='refactorings-list' id='versions-list'></ul>");
 
     $(this.getVersions()).each(function (i, version) {
-       $("#versions-list").append("<li><a class='application_version' id='" + version + "'>" + version + "</a></li>");
+       $("#versions-list").append("<li><a class='application_version' id='" + version + "'>" + version + "</a> |  <a class='delete_application_version' id='" + version + "'>Remove</a></li>");
     });
     
     $("#versions-list").append("<li><a class='application_version' id='original_application_version'>Original</a></li>");
@@ -35,6 +35,11 @@ VersionsView.prototype.render = function () {
             sidebar.refactoringSessionManager.resetSession();
             document.location.reload();
         }
+    });
+
+    $(".delete_application_version").on("click", function () {
+            sidebar.refactoringSessionManager.removeVersion(this.id);
+            document.location.reload();
     });
 
     $("#new-version").on("click", function () {

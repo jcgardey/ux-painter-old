@@ -45,3 +45,13 @@ RefactoringStorage.prototype.currentVersion = function(){
 RefactoringStorage.prototype.setCurrentVersion = function(version_name){
 	return localStorage.setItem("current_version",version_name);
 }
+
+RefactoringStorage.prototype.removeVersion = function(version_name){
+	let versions = this.getVersions();
+	if (this.getVersion(version_name) != null){
+		version = this.getVersion(version_name);
+		versions.pop(version);
+	}
+	//let versions = this.getVersions();
+	this.storeVersions(versions);
+}

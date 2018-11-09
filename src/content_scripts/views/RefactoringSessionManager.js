@@ -57,3 +57,10 @@ RefactoringSessionManager.prototype.executeCurrentVersion = function(){
 RefactoringSessionManager.prototype.isNewVersionUnderConstruction = function(){
 	return (this.instantiated_refactorings.length > 0);
 }
+
+RefactoringSessionManager.prototype.removeVersion = function(version_name){
+	this.refactoring_storage.removeVersion(version_name);
+	if ((this.currentVersion!= null) & (this.currentVersion.version_name == version_name))
+		this.resetSession();
+}
+
