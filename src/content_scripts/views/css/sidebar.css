@@ -16,14 +16,13 @@ ul.refactorings-list, #required-input-list {
 
 ul.refactorings-list li a {
     cursor: pointer;
-    margin: 10px 5px;
+    margin: 5px 10px;
     font-weight: bold;
-    display: block;
     text-decoration: none;
     color: black;
 }
 
-ul.refactorings-list li:hover {
+ul.refactorings-list li a:hover {
     background-color: #cccccc;
 }
 
@@ -58,5 +57,14 @@ ul.refactorings-list li:hover {
 
 .refactorings-form-group {
     margin: 20px 0px;
+}
+
+.application_version {
+    display: inline-block;
+    width: 50%;
+}
+
+.delete_application_version {
+    color: red;
 }
 

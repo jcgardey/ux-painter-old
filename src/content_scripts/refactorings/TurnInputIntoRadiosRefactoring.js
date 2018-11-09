@@ -1,7 +1,7 @@
 function TurnInputIntoRadiosRefactoring(json) {
     UsabilityRefactoringOnElement.call(this, json);
     if (json) {
-        this.values = values;
+        this.values = json.values;
     }
 }
 

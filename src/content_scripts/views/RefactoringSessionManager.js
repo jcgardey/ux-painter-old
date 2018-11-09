@@ -37,9 +37,9 @@ RefactoringSessionManager.prototype.storeAsVersion = function(version_name,seria
 }
 
 RefactoringSessionManager.prototype.useVersion = function(aName) {
-	this.refactoring_storage.setCurrentVersion(aName);
+    this.refactoring_storage.setCurrentVersion(aName);
 	document.location.reload();
-}
+};
 
 RefactoringSessionManager.prototype.resetSession = function(){
 	this.instantiated_refactorings = [];
@@ -60,7 +60,11 @@ RefactoringSessionManager.prototype.isNewVersionUnderConstruction = function(){
 
 RefactoringSessionManager.prototype.removeVersion = function(version_name){
 	this.refactoring_storage.removeVersion(version_name);
-	if ((this.currentVersion!= null) & (this.currentVersion.version_name == version_name))
+	if ((this.currentVersion != null) && (this.currentVersion.version_name == version_name))
 		this.resetSession();
+}
+
+RefactoringSessionManager.prototype.getCurrentVersion = function () {
+    return this.refactoring_storage.currentVersion() != "undefined" ? this.refactoring_storage.currentVersion() : "Original";
 }
 
