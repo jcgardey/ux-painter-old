@@ -45,7 +45,6 @@ RefactoringSessionManager.prototype.resetSession = function(){
 	console.log("reseteando");
 	this.instantiated_refactorings = [];
 	this.refactoring_storage.setCurrentVersion("undefined");
-	document.location.reload();
 }
 
 RefactoringSessionManager.prototype.executeCurrentVersion = function(){

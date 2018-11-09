@@ -28,8 +28,10 @@ VersionsView.prototype.render = function () {
     $(".application_version").on("click", function () {
         if(this.id != "original_application_version")
             sidebar.refactoringSessionManager.useVersion(this.id);
-        else
+        else{
             sidebar.refactoringSessionManager.resetSession();
+            document.location.reload();
+        }
     });
 
     $("#new-version").on("click", function () {
