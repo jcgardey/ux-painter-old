@@ -1,6 +1,8 @@
-function ProvideDefaultOptionRefactoring(elementXpath, defaultOptionIndex) {
-    UsabilityRefactoringOnElement.call(this, elementXpath);
-    this.defaultOptionIndex = defaultOptionIndex;
+function ProvideDefaultOptionRefactoring(json) {
+    UsabilityRefactoringOnElement.call(this,json);
+    if (json) {
+        this.defaultOptionIndex = json.defaultOptionIndex;
+    }
 }
 
 ProvideDefaultOptionRefactoring.prototype = new UsabilityRefactoringOnElement();
