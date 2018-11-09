@@ -42,7 +42,6 @@ RefactoringSessionManager.prototype.useVersion = function(aName) {
 }
 
 RefactoringSessionManager.prototype.resetSession = function(){
-	console.log("reseteando");
 	this.instantiated_refactorings = [];
 	this.refactoring_storage.setCurrentVersion("undefined");
 }
@@ -53,4 +52,8 @@ RefactoringSessionManager.prototype.executeCurrentVersion = function(){
 		this.instantiated_refactorings.push(instantiated_refactoring);
 		instantiated_refactoring.execute();
 	}
+}
+
+RefactoringSessionManager.prototype.isNewVersionUnderConstruction = function(){
+	return (this.instantiated_refactorings.length > 0);
 }

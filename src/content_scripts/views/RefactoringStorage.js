@@ -7,8 +7,15 @@ function RefactoringStorage(){
 }
 
 RefactoringStorage.prototype.storeVersion = function(objectVersion){
+	let version = objectVersion;
 	let versions = this.getVersions();
-	versions.push(objectVersion);
+	if (this.getVersion(objectVersion.version_name) != null){
+		version = this.getVersion(objectVersion.version_name);
+		versions.pop(version);
+		version.serialized_refactorings = objectVersion.serialized_refactorings;
+	}
+	//let versions = this.getVersions();
+	versions.push(version);
 	this.storeVersions(versions);
 }
 
@@ -28,6 +35,7 @@ RefactoringStorage.prototype.getVersion = function(aName){
 			return versions[i];
 		}
 	}
+	return null
 }
 
 RefactoringStorage.prototype.currentVersion = function(){
