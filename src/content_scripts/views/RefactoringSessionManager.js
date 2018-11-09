@@ -12,7 +12,7 @@ function RefactoringSessionManager() {
 }
 
 RefactoringSessionManager.prototype.addRefactoringForURL = function (url, aRefactoring) {
-	this.instantiated_refactorings.push(new InstantiatedRefactoring(url, aRefactoring));
+	this.instantiated_refactorings.push(new InstantiatedRefactoring(url, aRefactoring.serialize()));
 }
 
 RefactoringSessionManager.prototype.saveSessionAsVersion = function(version_name) {
@@ -42,13 +42,16 @@ RefactoringSessionManager.prototype.useVersion = function(aName) {
 }
 
 RefactoringSessionManager.prototype.resetSession = function(){
+	console.log("reseteando");
 	this.instantiated_refactorings = [];
+	this.refactoring_storage.setCurrentVersion("undefined");
+	document.location.reload();
 }
 
 RefactoringSessionManager.prototype.executeCurrentVersion = function(){
-	console.log("Voy a ejecturar la version actual que tiene");
-	console.log(this.currentVersion["version_name"]);
 	for (var i = this.currentVersion.serialized_refactorings.length - 1; i >= 0; i--) {
-		console.log(this.currentVersion.serialized_refactorings[i]);
+		let instantiated_refactoring = new InstantiatedRefactoring(this.currentVersion.serialized_refactorings[i].url, this.currentVersion.serialized_refactorings[i].refactoring);
+		this.instantiated_refactorings.push(instantiated_refactoring);
+		instantiated_refactoring.execute();
 	}
 }

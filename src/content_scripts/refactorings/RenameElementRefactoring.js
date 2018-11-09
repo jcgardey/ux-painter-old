@@ -1,4 +1,5 @@
 function RenameElementRefactoring (json) {
+    console.log("llego:" + json);
     UsabilityRefactoringOnElement.call(this, json);
     if (json) {
         this.newName = json.newName;
