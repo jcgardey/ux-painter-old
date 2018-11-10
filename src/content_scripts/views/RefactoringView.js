@@ -8,8 +8,8 @@ RefactoringView.prototype.render = function () {
     let url = document.location.href;
     var formGroup = $("<div class='refactorings-form-group'>")[0];
     $(formGroup).append("<label>URL for Refactoring</label>");
-    $(formGroup).append("<input type='text' id='url_for_instance' value='"+ url +"'/>");
-    $("#refactoring-form").append(formGroup);
+    $("#refactoring-form").append("<input type='hidden' id='url_for_instance' value='"+ url +"'/>");
+    //$("#refactoring-form").append(formGroup);
 
 
     var formGroup2 = $("<div class='refactorings-form-group'>")[0];
