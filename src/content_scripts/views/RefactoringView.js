@@ -5,7 +5,7 @@ RefactoringView.prototype.render = function () {
     $("#refactorings-sidebar").append("<h4 style='text-align:center'>" + this.refactoring.constructor.getName() + "</h4>");
     $("#refactorings-sidebar").append("<div id='refactoring-form'></div>");
 
-    let url = document.location.href;
+    let url = document.location.href.replace(document.location.search, "");
     var formGroup = $("<div class='refactorings-form-group'>")[0];
     $(formGroup).append("<label>URL for Refactoring</label>");
     $("#refactoring-form").append("<input type='hidden' id='url_for_instance' value='"+ url +"'/>");

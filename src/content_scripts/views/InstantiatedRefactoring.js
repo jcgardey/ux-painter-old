@@ -4,7 +4,10 @@ function InstantiatedRefactoring(url, aRefactoring) {
 }
 
 InstantiatedRefactoring.prototype.execute = function () {
-    if (this.isPageATarget(document.location.href)) {
+    // remove query parameters
+    var currentURL = document.location.href.replace(document.location.search, "");
+
+    if (this.isPageATarget(currentURL)) {
         let refactoring_class = eval(this.refactoring.refactoring);
         let refactoring_instance = new refactoring_class(this.refactoring);
         refactoring_instance.execute();
