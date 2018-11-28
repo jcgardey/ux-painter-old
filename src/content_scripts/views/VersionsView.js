@@ -42,10 +42,8 @@ VersionsView.prototype.render = function () {
     });
 
     $("#new-version").on("click", function () {
+        sidebar.getLogger().startVersion();
         sidebar.show(new RefactoringsListView());
     });
 
-    $("#add-refactoring-buttons").on("click", function () {
-        sidebar.show(new RefactoringsListView());
-    });
 }

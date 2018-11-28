@@ -21,6 +21,7 @@ NewVersionView.prototype.render = function () {
         sidebar.refactoringSessionManager.saveSessionAsVersion(versionName);
         sidebar.refactoringSessionManager.useVersion(versionName);
         sidebar.show(new VersionsView());
+        sidebar.getLogger().logVersion(versionName);
     });
 
     $("#refactoring-back").on("click", function () {

@@ -24,6 +24,7 @@ RefactoringView.prototype.render = function () {
         me.refactoring.execute();
         sidebar.show(new RefactoringsListView());        
         sidebar.refactoringSessionManager.addRefactoringForURL(url, me.refactoring);
+        sidebar.getLogger().logRefactoring(me.refactoring);
     });
 
     $("#cancel").on("click", function () {

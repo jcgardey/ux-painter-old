@@ -44,7 +44,7 @@ RefactoringsListView.prototype.render = function () {
             refactoringView.setRefactoring(refactoring);
             sidebar.show(refactoringView);
         }
-
+        sidebar.getLogger().startRefactoring();
     });
 
     $("#save-version").on("click", function () {

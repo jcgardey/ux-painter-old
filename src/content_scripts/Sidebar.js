@@ -1,6 +1,7 @@
 function Sidebar () {
     this.opened = false;
     this.refactoringSessionManager = new RefactoringSessionManager();
+    this.logger = new Logger();
     this.currentView = new VersionsView();
 }
 
@@ -34,6 +35,10 @@ Sidebar.prototype.show = function (view) {
 Sidebar.prototype.onElementSelected = function (element) {
     this.currentView.onElementSelected(element);
 };
+
+Sidebar.prototype.getLogger = function () {
+    return this.logger;
+}
 
 
 sidebar = new Sidebar();
