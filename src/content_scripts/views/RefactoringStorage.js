@@ -14,7 +14,8 @@ RefactoringStorage.prototype.storeVersion = function(objectVersion){
 		versions.pop(version);
 		version.serialized_refactorings = objectVersion.serialized_refactorings;
 	}
-	//let versions = this.getVersions();
+	// generate id for the new version
+	objectVersion.id = getRandomID();
 	versions.push(version);
 	this.storeVersions(versions);
 }

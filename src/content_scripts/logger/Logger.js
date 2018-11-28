@@ -1,7 +1,6 @@
 function Logger() {
     this.versionStarted = false;
     this.version = {"refactorings": [], "time": 0};
-    
 }
 
 Logger.prototype.startRefactoring = function () {
@@ -11,7 +10,7 @@ Logger.prototype.startRefactoring = function () {
 Logger.prototype.logRefactoring = function (aRefactoring) {
     var refactoringFinishTime = new Date().getTime();
     var refactoringCreationTime = refactoringFinishTime - this.refactoringStartTime;
-    this.version.refactorings.push({"name":aRefactoring.constructor.getName(), "time":(refactoringCreationTime / 1000)});
+    this.version.refactorings.push({"refactoringName":aRefactoring.constructor.getName(), "time":(refactoringCreationTime / 1000)});
     console.log(this.version);
 };
 
@@ -25,27 +24,19 @@ Logger.prototype.startVersion = function () {
 Logger.prototype.logVersion = function (aVersion) {
     var versionFinishTime = new Date().getTime();
     var versionCreationTime = versionFinishTime - this.versionStartTime;
-    var versionLogger = this.getVersionLogger();
-    if (!versionLogger[aVersion]) {
-        versionLogger[aVersion] = {"refactorings": this.version.refactorings, "time": versionCreationTime / 1000};
-    }
-    else {
-        versionLogger[aVersion].time += versionCreationTime / 1000;
-        for (i = 0; i < this.version.refactorings.length;i++) {
-            versionLogger[aVersion].refactorings.push(this.version.refactorings[i]);
-        }
-    }
-    this.saveLogger(versionLogger);
+    this.version.time = versionCreationTime / 1000;
+    this.version.versionName = aVersion;
+    this.version.id = sidebar.refactoringSessionManager.getVersion(aVersion).id;
+
+    $.ajax({
+        url: 'http://localhost:1702/refactoring_tool/save_version',
+        contentType : 'application/json',
+        data: JSON.stringify(this.version),
+        type: "POST"
+    });
+    this.clearVersion();
 };
 
-Logger.prototype.getVersionLogger = function () {
-    if (!localStorage.getItem("logger")) {
-        return {};
-    }
-    return JSON.parse(localStorage.getItem("logger"));
-};
-
-Logger.prototype.saveLogger = function (logger) {
-    alert(JSON.stringify(logger));
-    localStorage.setItem("logger", JSON.stringify(logger));
-};
+Logger.prototype.clearVersion = function () {
+    this.version = {"refactorings": [], "time": 0};
+}

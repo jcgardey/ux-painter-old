@@ -33,7 +33,6 @@ RefactoringSessionManager.prototype.serializeRefactorings = function () {
 
 RefactoringSessionManager.prototype.storeAsVersion = function(version_name,serialized_refactorings){
 	 this.refactoring_storage.storeVersion({"version_name":version_name, "serialized_refactorings":serialized_refactorings});
-
 }
 
 RefactoringSessionManager.prototype.useVersion = function(aName) {
@@ -66,5 +65,9 @@ RefactoringSessionManager.prototype.removeVersion = function(version_name){
 
 RefactoringSessionManager.prototype.getCurrentVersion = function () {
     return this.refactoring_storage.currentVersion() != "undefined" ? this.refactoring_storage.currentVersion() : "Original";
+}
+
+RefactoringSessionManager.prototype.getVersion = function (aName) {
+	return this.refactoring_storage.getVersion(aName);
 }
 
