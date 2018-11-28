@@ -13,6 +13,7 @@
       "content_scripts/refactorings/lib/js/datepickr.js",
       "content_scripts/refactorings/lib/js/awesomplete.min.js",
       "content_scripts/refactorings/lib/js/date-dropdowns.js",
+      "content_scripts/refactorings/lib/js/jquery.maskedinput.min.js",
       "content_scripts/refactorings/Refactorings.js",
       "content_scripts/refactorings/RenameElementRefactoring.js",
       "content_scripts/refactorings/AddTooltipRefactoring.js",
@@ -27,6 +28,7 @@
       "content_scripts/refactorings/ProvideDefaultOptionRefactoring.js",
       "content_scripts/refactorings/AddFormValidationRefactoring.js",
       "content_scripts/refactorings/TurnInputIntoSelectsRefactoring.js",
+      "content_scripts/refactorings/FormatInputRefactoring.js",
       "content_scripts/XpathProcessor.js",
       "content_scripts/XPathInterpreter.js",
       "content_scripts/PageSelector.js",
@@ -48,6 +50,7 @@
       "content_scripts/views/ProvideDefaultOptionView.js",
       "content_scripts/views/AddFormValidationView.js",
       "content_scripts/views/TurnInputIntoSelectsView.js",
+      "content_scripts/views/FormatInputView.js",
       "content_scripts/Sidebar.js"
     ],
     "css": [

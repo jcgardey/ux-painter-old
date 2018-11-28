@@ -16,11 +16,3 @@ TurnInputIntoSelectsView.prototype.setRefactoringArguments = function () {
     var values = $("#select-values").val().split(",");
     this.refactoring.setValues(values);
 };
-
-TurnInputIntoSelectsRefactoring.targetElements = function () {
-    return "input[type='text']";
-};
-
-TurnInputIntoSelectsRefactoring.getView = function () {
-    return TurnInputIntoSelectsView;
-};

@@ -55,3 +55,11 @@ TurnInputIntoSelectsRefactoring.prototype.setValues = function (values) {
 TurnInputIntoSelectsRefactoring.getName = function () {
     return "Turn Input into Selects";
 };
+
+TurnInputIntoSelectsRefactoring.targetElements = function () {
+    return "input[type='text']";
+};
+
+TurnInputIntoSelectsRefactoring.getView = function () {
+    return TurnInputIntoSelectsView;
+};
