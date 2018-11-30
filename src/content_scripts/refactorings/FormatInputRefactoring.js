@@ -22,7 +22,7 @@ FormatInputRefactoring.prototype.transform = function () {
 };
 
 FormatInputRefactoring.prototype.serialize = function () {
-    var json = UsabilityRefactoringOnElement.UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
     json.formatString = this.formatString;
     return json;
 }

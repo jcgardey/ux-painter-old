@@ -52,6 +52,12 @@ TurnInputIntoSelectsRefactoring.prototype.setValues = function (values) {
     this.values = values;
 };
 
+TurnInputIntoSelectsRefactoring.prototype.serialize = function () {
+    var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
+    json.values = this.values;
+    return json;
+}
+
 TurnInputIntoSelectsRefactoring.getName = function () {
     return "Turn Input into Selects";
 };
