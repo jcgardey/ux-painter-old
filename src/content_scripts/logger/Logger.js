@@ -28,13 +28,8 @@ Logger.prototype.logVersion = function (aVersion) {
     this.version.versionName = aVersion;
     this.version.id = sidebar.refactoringSessionManager.getVersion(aVersion).id;
 
-    $.ajax({
-        url: 'http://localhost:1702/refactoring_tool/save_version',
-        contentType : 'application/json',
-        data: JSON.stringify(this.version),
-        type: "POST"
-    });
-    this.clearVersion();
+   browser.runtime.sendMessage({"message": "log", "version": this.version});
+   this.clearVersion();
 };
 
 Logger.prototype.clearVersion = function () {

@@ -6,6 +6,17 @@ browser.browserAction.onClicked.addListener(function () {
     });
 });
 
+browser.runtime.onMessage.addListener(function (request) {
+    if (request.message == "log") {
+        $.ajax({
+            url: 'https://autorefactoring.lifia.info.unlp.edu.ar/refactoring-tool-logger/save_version',
+            contentType : 'application/json',
+            data: JSON.stringify(request.version),
+            type: "POST"
+        });
+    }
+});
+
 
 function getCurrentTab (callback) {
     try {
@@ -18,3 +29,4 @@ function getCurrentTab (callback) {
         console.log(err);
     }
 }
+
