@@ -14,7 +14,7 @@
       "content_scripts/refactorings/lib/js/datepickr.js",
       "content_scripts/refactorings/lib/js/awesomplete.min.js",
       "content_scripts/refactorings/lib/js/date-dropdowns.js",
-      "content_scripts/refactorings/lib/js/jquery.maskedinput.min.js",
+      "content_scripts/refactorings/lib/js/jquery.mask.js",
       "content_scripts/refactorings/Refactorings.js",
       "content_scripts/refactorings/RenameElementRefactoring.js",
       "content_scripts/refactorings/AddTooltipRefactoring.js",
