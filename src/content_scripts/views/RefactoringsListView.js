@@ -3,7 +3,7 @@ function RefactoringsListView () {
         AddDatePickerRefactoring, AddAutocompleteRefactoring,
         TurnInputIntoRadiosRefactoring, ResizeInputRefactoring, LinkToTopRefactoring, DateInputIntoSelectsRefactoring,
     TurnAttributeIntoLinkRefactoring, AddProcessingPageRefactoring, ProvideDefaultOptionRefactoring, AddFormValidationRefactoring,
-        TurnInputIntoSelectsRefactoring, FormatInputRefactoring, TurnInputIntoTextareaRefactoring];
+        TurnInputIntoSelectsRefactoring, FormatInputRefactoring, TurnInputIntoTextareaRefactoring, InlineValidationRefactoring];
 }
 
 RefactoringsListView.prototype.getSelectedRefactoring = function (refactoringName) {

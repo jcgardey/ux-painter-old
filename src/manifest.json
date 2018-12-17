@@ -31,6 +31,7 @@
       "content_scripts/refactorings/TurnInputIntoSelectsRefactoring.js",
       "content_scripts/refactorings/FormatInputRefactoring.js",
       "content_scripts/refactorings/TurnInputIntoTextareaRefactoring.js",
+      "content_scripts/refactorings/InlineValidationRefactoring.js",
       "content_scripts/XpathProcessor.js",
       "content_scripts/XPathInterpreter.js",
       "content_scripts/PageSelector.js",
