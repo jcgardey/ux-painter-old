@@ -12,6 +12,8 @@ RefactoringView.prototype.render = function () {
     //$("#refactoring-form").append(formGroup);
 
 
+    $("#refactorings-sidebar").append("<div class='refactorings-form-group' id='refactoring_style'></div>");
+
     var formGroup2 = $("<div class='refactorings-form-group'>")[0];
     $(formGroup2).append("<div class='refactoring-buttons'><button id='apply'>Apply</button></div>");
     $(formGroup2).append("<div class='refactoring-buttons'><button id='cancel'>Back</button></div>");

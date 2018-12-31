@@ -12,4 +12,7 @@ RefactoringOnElementView.prototype.render = function () {
     $(formGroup).append("<p class='refactorings-label' id='element_xpath'>" + this.refactoring.getElementXpath() + "</p>");
     $("#refactoring-form").append(formGroup);
 
+    $("#refactoring_style").append("<label class='refactoring-input-label'>CSS Style (Optional)</label>");
+    $("#refactoring_style").append("<textarea rows='4' placeholder='the rules will be applied to the target element'></textarea>");
+
 };
