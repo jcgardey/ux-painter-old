@@ -37,5 +37,5 @@ RenameElementRefactoring.getView = function () {
 
 RenameElementRefactoring.targetElements = function () {
     //return "a, div, img, button, input[type='button'], input[type='submit']";
-    return "a, button, input[type='button'], input[type='submit'], span, p";
+    return "a, button, input[type='button'], input[type='submit'], span, p, h1, h2, h3, h4, h5, h6";
 };
