@@ -6,7 +6,7 @@ FormatInputView.prototype = new RefactoringOnElementView();
 
 FormatInputView.prototype.render = function () {
     RefactoringOnElementView.prototype.render.call(this);
-    $("#refactoring-form").append("<label>Format String</label>");
+    $("#refactoring-form").append("<label>Input Format</label>");
     $("#refactoring-form").append("<input type='text' id='input-format' placeholder='e.g. 9999-99-99 for Date'/>");
     $("#refactoring-form").append("<p class='bold' style='margin: 10px 0px'>Options</p>");
     $("#refactoring-form").append("<ul><li>0: {pattern: /\\d/}</li><li>9: {pattern: /\\d/, optional:true}</li>" +
