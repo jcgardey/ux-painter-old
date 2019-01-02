@@ -23,5 +23,5 @@ LinkToTopRefactoring.getView = function () {
 };
 
 LinkToTopRefactoring.getName = function () {
-    return "Link to Top Refactoring";
+    return "Link to Top";
 }
