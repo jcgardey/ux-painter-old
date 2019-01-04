@@ -59,7 +59,7 @@ TurnInputIntoSelectsRefactoring.prototype.serialize = function () {
 }
 
 TurnInputIntoSelectsRefactoring.getName = function () {
-    return "Turn Input into Selects";
+    return "Turn Input into Select";
 };
 
 TurnInputIntoSelectsRefactoring.targetElements = function () {
