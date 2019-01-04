@@ -23,6 +23,7 @@ RefactoringView.prototype.render = function () {
     $("#apply").on("click", function () {
         let url = $("#url_for_instance").val();
         me.setRefactoringArguments();
+        me.setRefactoringStyle();
         me.refactoring.execute();
         sidebar.show(new RefactoringsListView());        
         sidebar.refactoringSessionManager.addRefactoringForURL(url, me.refactoring);
@@ -41,4 +42,11 @@ RefactoringView.prototype.setRefactoring = function (refactoring) {
 RefactoringView.prototype.setRefactoringArguments = function () {
 
 };
+
+RefactoringView.prototype.setRefactoringStyle = function () {
+    var cssInput = document.querySelector("#refactoring-css");
+    if (cssInput && cssInput.value) {
+        this.refactoring.setStyle(cssInput.value);
+    }
+}
 
