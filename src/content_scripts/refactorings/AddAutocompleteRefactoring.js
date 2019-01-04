@@ -25,7 +25,11 @@ AddAutocompleteRefactoring.prototype.serialize = function () {
     var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);
     json.values = this.values;
     return json;
-}
+};
+
+AddAutocompleteRefactoring.prototype.getStyleElement = function () {
+    return this.targetElement.parentNode;
+};
 
 AddAutocompleteRefactoring.getName = function () {
     return "Add Autocomplete";

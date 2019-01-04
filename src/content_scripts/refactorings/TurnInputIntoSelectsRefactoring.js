@@ -45,12 +45,16 @@ TurnInputIntoSelectsRefactoring.prototype.transform = function () {
     otherElement.addEventListener("keyup", function () {
        anElement.value = otherElement.value;
     });
-
+    this.styleElement = selectElement;
 };
 
 TurnInputIntoSelectsRefactoring.prototype.setValues = function (values) {
     this.values = values;
 };
+
+TurnInputIntoSelectsRefactoring.prototype.getStyleElement = function () {
+    return this.styleElement;
+}
 
 TurnInputIntoSelectsRefactoring.prototype.serialize = function () {
     var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);

@@ -12,6 +12,10 @@ AddDatePickerRefactoring.prototype.transform = function () {
     }
 };
 
+AddDatePickerRefactoring.prototype.getStyleElement = function () {
+    return this.targetElement.parentNode;
+};
+
 AddDatePickerRefactoring.getName = function () {
     return "Add DatePicker";
 };

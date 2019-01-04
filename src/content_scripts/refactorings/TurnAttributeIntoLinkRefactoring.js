@@ -11,13 +11,19 @@ TurnAttributeIntoLinkRefactoring.prototype.constructor = TurnAttributeIntoLinkRe
 TurnAttributeIntoLinkRefactoring.prototype.transform = function () {
     var anElement = $(this.getElement());
     if (typeof(anElement[0]) != "undefined") {
-        anElement.replaceWith($("<a href='" + this.targetURL + "'>" + anElement[0].outerHTML + "</a>"));
+        var newElement = $("<a href='" + this.targetURL + "'>" + anElement[0].outerHTML + "</a>");
+        anElement.replaceWith(newElement);
+        this.styleElement = newElement[0];
     }
 };
 
 TurnAttributeIntoLinkRefactoring.prototype.setTargetURL = function (url) {
     this.targetURL = url;
 };
+
+TurnAttributeIntoLinkRefactoring.prototype.getStyleElement = function () {
+    return this.styleElement;
+}
 
 TurnAttributeIntoLinkRefactoring.prototype.serialize = function () {
     var json = UsabilityRefactoringOnElement.prototype.serialize.call(this);

@@ -19,6 +19,7 @@ TurnInputIntoTextareaRefactoring.prototype.transform = function () {
     textArea.addEventListener("keyup", function () {
        textInput.value =  textArea.value;
     });
+    this.styleElement = textArea;
 };
 
 TurnInputIntoTextareaRefactoring.prototype.setSize = function (aSize) {
@@ -30,6 +31,10 @@ TurnInputIntoTextareaRefactoring.prototype.serialize = function () {
     json.size = this.size;
     return json;
 };
+
+TurnInputIntoTextareaRefactoring.prototype.getStyleElement = function () {
+    return this.styleElement;
+}
 
 TurnInputIntoTextareaRefactoring.targetElements = function () {
     return "input[type='text']";

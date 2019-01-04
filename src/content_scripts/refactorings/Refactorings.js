@@ -78,6 +78,9 @@ UsabilityRefactoringOnElement.prototype.getStyleElement = function () {
 };
 
 UsabilityRefactoringOnElement.prototype.applyStyle = function () {
+    if (!this.style) {
+        return
+    }
     var newStyle = "";
     if (!this.getStyleElement().getAttribute("style")) {
         newStyle = this.style;

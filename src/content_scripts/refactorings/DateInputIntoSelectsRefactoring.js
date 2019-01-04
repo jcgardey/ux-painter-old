@@ -14,6 +14,10 @@ DateInputIntoSelectsRefactoring.prototype.transform = function () {
     }
 };
 
+DateInputIntoSelectsRefactoring.prototype.getStyleElement = function () {
+    return this.targetElement.parentNode;
+};
+
 DateInputIntoSelectsRefactoring.getName = function () {
     return "Date Input into Selects";
 };
